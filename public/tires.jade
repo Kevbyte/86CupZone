@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+head
+  link(href='/style.css', rel='stylesheet')
+
+body
+  
+  div.navigation
+    ul
+      li 
+        form(action="/tires", method="post")
+          button(type="submit", class="button-tires") Tires
+      li
+        form(action="/brakes", method="post")
+          button(type="submit", class="button-brakes") Brakes
+  div.tireads
+    h1 Sponsor Offerings
+    img(class="image", src="http://discounttire-coupons.org/wp-content/uploads/2011/11/discount-tire-coupons-22.jpg")
+    img(class="image", src="http://discounttirecenters.com/i/temp_ad1.png")

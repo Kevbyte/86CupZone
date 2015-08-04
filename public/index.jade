@@ -1,0 +1,20 @@
+doctype html
+html(lang="en")
+head
+  link(href='/style.css', rel='stylesheet')
+
+body
+  
+  div.navigation
+    ul
+      li 
+        form(action="/tires", method="post")
+          button(type="submit", class="button-tires") Tires
+      li
+        form(action="/brakes", method="post")
+          button(type="submit", class="button-brakes") Brakes
+  div.news
+    h1 News
+    #messages
+      for message in messages
+        include message
