@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+head
+  link(href='/style.css', rel='stylesheet')
+
+body
+  
+
+  div.loginbox
+    form(name="login", action="/login", method="post")
+      input(type="text", name="user", placeholder="name")
+      input(type="password", name="pass", placeholder="password")
+      input(type="submit", value="login")

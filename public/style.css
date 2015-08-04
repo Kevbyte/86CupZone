@@ -2,10 +2,17 @@ body {
   margin: 0;
   margin-top: 10px;
   font-family: arial, sans-serif;
-  /*background-image: url('http://i.imgur.com/UEQdgVd.jpg');*/
-  background-color: #CCCCCC;
+  background-image: url('http://i.imgur.com/UEQdgVd.jpg');
   background-size: 100%
 
+}
+
+div.main {
+  width: 75%;
+  height: 75%;
+  background-color: #CCCCCC;
+  opacity: 0.9;
+  margin: auto;
 }
 
 div.news {
@@ -16,9 +23,14 @@ div.news {
   text-align: center;
   width: 500px;
   height: 500px;
-  opacity: 0.8;
   margin: auto;
-  margin-top: 50px
+  margin-top: 50px;
+  word-wrap: break-word;
+}
+
+div.drivers{
+  font-size: 10px;
+  color: black;
 }
 
 h1 {
@@ -65,8 +77,18 @@ h1 {
   background-color: #ccc;
 }
 
-.image {
-  
+div.loginbox {
+  padding: 20px;
+  font-size: 14px;
+  color: black;
+  background-color: #CCCCCC;
+  border-radius: 10px;
+  text-align: center;
+  width: 500px;
+  height: 50px;
+  margin: auto;
+  margin-top: 50px;
+  word-wrap: break-word;
 }
 
 

@@ -29,24 +29,29 @@ app.set('views', __dirname + '/public');
 // (although you can still mix and match)
 app.set('view engine', 'jade');
 
+var messages = [];
+
+var drivers = [{tweet:'AK'}, {tweet:'gboy'}, {tweet:'JJ'}, {tweet:'SVZ'}];
+
 function Tweet(tweet) {
   this.tweet = tweet;
-
 }
-var messages = [];
-// for(var i=0; i<5; i++){
-// 	messages.push(new Tweet('meow meow'))
 
-// }
 
-twit.get('search/tweets', {q: 'gt86'}, function(error, tweets){
-  // console.log('tweets',tweets.statuses[0]);
-  for(var i=0; i<7; i++){
-    var message = new Tweet(tweets.statuses[i].text)
-    messages.push(message);
-             
-  }
-});
+var grabTweets = function(req, res){
+  twit.get('search/tweets', {q: 'cats'}, function(error, tweets){
+    // console.log('tweets',tweets.statuses[0]);
+    messages=[];
+    for(var i=0; i<7; i++){
+      var message = new Tweet(tweets.statuses[i].text);
+      messages.push(message);           
+    }
+    res.render('index', { messages: messages });
+  });
+};
+
+
+// console.log("drivers ========= ", drivers);
 
 ////////////////////////////////////////////////////////////
 
@@ -55,9 +60,27 @@ app.get('/', function(req, res){
   res.render('index', { messages: messages });
 });
 
+app.post('/main', function(req, res){
+  res.redirect('/');
+});
+
 app.post('/tires', function(req, res){
   res.render('tires');
 });
+
+app.post('/brakes', function(req, res){
+  res.render('brakes');
+});
+
+app.get('/login', function(req, res){
+  res.render('login');
+});
+
+app.post('/login', function(req, res){
+  res.redirect('/');
+});
+
+app.get('/getTwit', grabTweets);
 
 app.listen(4040);
 console.log('Express app started on port %d', 4040);
