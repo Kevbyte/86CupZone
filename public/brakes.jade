@@ -10,12 +10,17 @@ body
       li
         form(action="/main", method="post")
           button(type="submit", class="main") Main
-      li 
+      li
         form(action="/tires", method="post")
           button(type="submit", class="button-tires") Tires
       li
         form(action="/brakes", method="post")
           button(type="submit", class="button-brakes") Brakes
+
+      li
+        form(action="/logout", method="post")
+          button(type="submit", class="logout") Quit
+          
   div.brakeads
     h1 Sponsor Offerings
     img(class="image", src="https://s3.amazonaws.com/3gengagement.dealers/fenton-motors-pampa/service-specials/13-03-mar/fenton_motors_pampa-service-brake_fluid_flush-lg.png")

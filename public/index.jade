@@ -5,29 +5,72 @@ head
   
 
 body
-  div.main
 
-    div.navigation
-      ul
-        li 
-          form(action="/tires", method="post")
-            button(type="submit", class="button-tires") Tires
-        li
-          form(action="/brakes", method="post")
-            button(type="submit", class="button-brakes") Brakes
-  div.news
-    h1 News
-    #messages
-      for message in messages
-        include message
+    div.main
 
-script(src='./client.js')
+      div.navigation
+        ul
+          li 
+            form(action="/tires", method="post")
+              button(type="submit", class="button-tires") Tires
+          li
+            form(action="/brakes", method="post")
+              button(type="submit", class="button-brakes") Brakes
+
+          li
+            form(action="/logout", method="post")
+              button(type="submit", class="logout") Quit
+
 script(src='./bower_components/jquery/dist/jquery.min.js')
+script(src='./client.js')
+
 
 script.
   $(document).ready(function() {
-    console.log("READY!!!")
-    getTweets()
-  })
+    console.log("READY!!!");
+      $('body').append('<div class="zone"><div>')
+      $('.zone').text('ZONE 86CUP')
+      $('.main').append('<div class="title"></div>')
+      $('.title').text('News')
+
+      $('.main').append('<div class="news"></div>')
+      $('.news').append('<div class="title"></div>')
+      $('.title').text('News')
+
+    
+    var getTweets = function(){
+      console.log("inside")
+      $.ajax({
+        method: 'GET',
+        url: 'http://localhost:3000/getTwit',
+        contentType: 'application/json',  
+        success: function(data){
+          console.log("data ====== ",data);
+          clear();
+          displayMessages(data);
+        },
+
+        error: function(data){
+          console.log("Failed to fetch data")
+        }
+      });
+    };
+    getTweets();
+    setInterval(function(){getTweets()}, 10000);
+    
+    var clear = function(){
+      $('.news').html('')
+    }
+
+    var displayMessages = function(data){
+      
+      for(var i=0; i<data.messages.length; i++){
+          var tweet = JSON.stringify(data.messages[i].tweet)
+          $('.news').prepend('<div class="tweet"></div>')
+          $('.tweet').first().text(tweet)
+      }
+    }
+    
+  });
 
 

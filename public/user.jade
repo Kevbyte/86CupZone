@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+head
+  link(href='/style.css', rel='stylesheet')
+
+body
+
+  div.navigation
+        ul
+
+          li 
+            form(action="/tires", method="post")
+              button(type="submit", class="button-tires") Tires
+          li
+            form(action="/brakes", method="post")
+              button(type="submit", class="button-brakes") Brakes
+
+          li
+            form(action="/logout", method="post")
+              button(type="submit", class="logout") Quit
+
+
+script(src='./bower_components/jquery/dist/jquery.min.js')
+script.
+  $(document).ready(function() {
+    console.log("READY!!!");
+
+      $('body').append('<div class="drivers"></div>');
+      $('.drivers').append('<h2>Drivers</h2>')
+      $('.drivers').append('<li></li>').text('Kevin Schweigert')
+
+  })

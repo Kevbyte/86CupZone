@@ -7,7 +7,7 @@ body {
 
 }
 
-div.main {
+.main {
   width: 75%;
   height: 75%;
   background-color: #CCCCCC;
@@ -15,28 +15,68 @@ div.main {
   margin: auto;
 }
 
+.title {
+  font-size: 24px;
+  color: white;
+  font-style: italic;
+  background-color: #260000;
+  border-radius: 10px;
+  text-align: center;
+  width: 500px;
+  height: 26px;
+  margin: auto;
+  margin-top: 20px;
+  word-wrap: break-word;
+}
+
 div.news {
+  padding: 10px;
   font-size: 10px;
   color: black;
   background-color: white;
   border-radius: 10px;
   text-align: center;
   width: 500px;
-  height: 500px;
+  height: 400px;
   margin: auto;
+  margin-top: 20px;
+  word-wrap: break-word;
+}
+
+div.tweet{
+  font-size: 14px;
+  margin: 10px;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+div.drivers {
+  font-size: 10px;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  width: 70px;
+  height: 130px;
   margin-top: 50px;
   word-wrap: break-word;
 }
 
-div.drivers{
-  font-size: 10px;
-  color: black;
+.drivers li {
+  font-size: 14;
 }
 
 h1 {
+  float:left;
   color: black;
   font-style: italic;
   margin-bottom: 10px;
+}
+
+.zone {
+  font-size: 24px;
 }
 
 .navigation {
@@ -84,13 +124,22 @@ div.loginbox {
   background-color: #CCCCCC;
   border-radius: 10px;
   text-align: center;
-  width: 500px;
-  height: 50px;
+  width: 700px;
+  height: 100px;
   margin: auto;
   margin-top: 50px;
   word-wrap: break-word;
 }
 
+.lol {
+  width: 600px;
+  height: 400px;
+  margin:auto;
+}
+
+.link {
+  background-color: white;
+}
 
 
 /*#container {

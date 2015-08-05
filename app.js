@@ -39,14 +39,17 @@ function Tweet(tweet) {
 
 
 var grabTweets = function(req, res){
-  twit.get('search/tweets', {q: 'cats'}, function(error, tweets){
+  console.log("GRABBING TWEETS")
+  twit.get('search/tweets', {q: 'hpde'}, function(error, tweets){
     // console.log('tweets',tweets.statuses[0]);
     messages=[];
     for(var i=0; i<7; i++){
       var message = new Tweet(tweets.statuses[i].text);
       messages.push(message);           
     }
-    res.render('index', { messages: messages });
+    console.log(messages)
+    // res.render('index', { messages: messages });
+    res.json({ messages: messages });
   });
 };
 
@@ -80,8 +83,16 @@ app.post('/login', function(req, res){
   res.redirect('/');
 });
 
+app.post('/logout', function(req, res){
+  res.render('logout');
+});
+
+app.post('/user', function(req, res){
+  res.render('user');
+});
+
 app.get('/getTwit', grabTweets);
 
-app.listen(4040);
-console.log('Express app started on port %d', 4040);
+app.listen(3000);
+console.log('Express app started on port %d', 3000);
 
